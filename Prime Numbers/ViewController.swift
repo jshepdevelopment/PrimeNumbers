@@ -11,13 +11,16 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var numberSlider: UISlider!
-    @IBOutlet weak var counterLabel: UILabel!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var labelCover: UILabel!
     
+    @IBOutlet weak var numberTextField: UITextField!
+    
+    
+    
     @IBAction func sliderValueChanged(sender: UISlider) {
         let currentValue = Int(sender.value)
-        counterLabel.text = "\(currentValue)"
+        numberTextField.text = "\(currentValue)"
     }
     
     var max = 1000

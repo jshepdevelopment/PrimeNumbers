@@ -15,6 +15,7 @@
 		041DD79E1C6D7D2400B2AA02 /* Prime_NumbersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041DD79D1C6D7D2400B2AA02 /* Prime_NumbersTests.swift */; };
 		041DD7A91C6D7D2400B2AA02 /* Prime_NumbersUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041DD7A81C6D7D2400B2AA02 /* Prime_NumbersUITests.swift */; };
 		041DD7B81C6F91DD00B2AA02 /* primageddon.png in Resources */ = {isa = PBXBuildFile; fileRef = 041DD7B71C6F91DD00B2AA02 /* primageddon.png */; };
+		041DD7BC1C704FB400B2AA02 /* grey-button-hi.png in Resources */ = {isa = PBXBuildFile; fileRef = 041DD7BB1C704FB400B2AA02 /* grey-button-hi.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		041DD7A81C6D7D2400B2AA02 /* Prime_NumbersUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prime_NumbersUITests.swift; sourceTree = "<group>"; };
 		041DD7AA1C6D7D2400B2AA02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		041DD7B71C6F91DD00B2AA02 /* primageddon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = primageddon.png; sourceTree = "<group>"; };
+		041DD7BB1C704FB400B2AA02 /* grey-button-hi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grey-button-hi.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +133,7 @@
 		041DD7B61C6F91C500B2AA02 /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				041DD7BB1C704FB400B2AA02 /* grey-button-hi.png */,
 				041DD7B71C6F91DD00B2AA02 /* primageddon.png */,
 			);
 			name = assets;
@@ -241,6 +244,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				041DD7B81C6F91DD00B2AA02 /* primageddon.png in Resources */,
+				041DD7BC1C704FB400B2AA02 /* grey-button-hi.png in Resources */,
 				041DD7931C6D7D2400B2AA02 /* LaunchScreen.storyboard in Resources */,
 				041DD7901C6D7D2400B2AA02 /* Assets.xcassets in Resources */,
 				041DD78E1C6D7D2400B2AA02 /* Main.storyboard in Resources */,

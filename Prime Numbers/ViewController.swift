@@ -24,13 +24,14 @@ class ViewController: UIViewController {
     var primeArray: [Int] = []
     var buttonY = 0
     var primeButtonY = 0
-    var buttonX = 0
     var timerCounter = 0
     var primeCounter = 0
     var animSpeed = 10
     var goPressed = false
+    var thisMaxLabel = 0
     
     @IBAction func goButton(sender: AnyObject) {
+        
         //set up timer
         var timer = NSTimer.scheduledTimerWithTimeInterval(0.03, target: self, selector: "update", userInfo: nil, repeats: true)
         
@@ -39,10 +40,19 @@ class ViewController: UIViewController {
         var primeArray: [Int] = []
         buttonY = 0
         primeButtonY = 0
-        buttonX = 0
         timerCounter = 0
         primeCounter = 0
-    
+        maxNumber = Int(numberTextField.text!)!
+        thisMaxLabel = maxNumber
+
+        
+        if maxNumber > 1000 {
+            primeCounterLabel.text = "\(maxNumber)? No way, that would take forever. Go lower!"
+            maxNumber = 0
+            thisMaxLabel = maxNumber
+
+        }
+        
         scrollView.contentSize = CGSizeMake(50, CGFloat(maxNumber*20))
         primeScrollView.contentSize = CGSizeMake(50, CGFloat(maxNumber*20))
         
@@ -68,7 +78,7 @@ class ViewController: UIViewController {
             }
             
             //adding all numbers
-            let numberButton = UIButton(frame: CGRect(x: buttonX, y:buttonY, width: 50, height: 15))
+            let numberButton = UIButton(frame: CGRect(x: 0, y:buttonY, width: 50, height: 15))
             buttonY = buttonY + 20  // add spacing
             numberButton.layer.cornerRadius = 5  // get some fancy pantsy rounding
             numberButton.backgroundColor = UIColor.lightGrayColor()
@@ -81,7 +91,7 @@ class ViewController: UIViewController {
         
         for (index, number) in primeArray.enumerate() {
             //adding primes only
-            let primeNumberButton = UIButton(frame: CGRect(x: buttonX, y:primeButtonY, width: 50, height: 15))
+            let primeNumberButton = UIButton(frame: CGRect(x: 0, y:primeButtonY, width: 50, height: 15))
             primeButtonY = primeButtonY + 20  // add spacing
             primeNumberButton.layer.cornerRadius = 5  // get some fancy pantsy rounding
             primeNumberButton.backgroundColor = UIColor.redColor()
@@ -102,7 +112,10 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        // check for screen taps
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        view.addGestureRecognizer(tap)
         
     }
 
@@ -115,25 +128,26 @@ class ViewController: UIViewController {
         // Something cool
         let scrollY = CGFloat(timerCounter*animSpeed*2)
         let primeScrollY = CGFloat(timerCounter*animSpeed/2)
-
+        
         if Int(scrollY) < buttonY-250 {
             scrollView.setContentOffset(CGPointMake(0, scrollY), animated: true)
         }
         if Int(primeScrollY) < primeButtonY-250 {
+     
             primeScrollView.setContentOffset(CGPointMake(0, primeScrollY), animated: true)
         } else {
-            primeCounterLabel.text = "There are \(primeCounter) primes between 2 and \(maxNumber)!"
+            primeCounterLabel.text = "There are \(primeCounter) primes between 2 and \(thisMaxLabel)!"
         }
         
-        print("primeButtonY: \(primeButtonY)")
-        print("primeScrollY: \(primeScrollY)")
-        
         print("timerCounter: \(timerCounter)")
-        
-
-        
         timerCounter++
 
+    }
+    
+    // hid the keyboard when not using
+    func dismissKeyboard() {
+        // exit view editing
+        view.endEditing(true)
     }
 
 }
